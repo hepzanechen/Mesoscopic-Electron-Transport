@@ -1,5 +1,4 @@
 addpath('/home/yanxiwu/test2nodelete/varymusi/calcshared/');
-autoSetWorkers()
 
 %% read parameters relating to system configuration in each one's own folder
 paramsFilename ="params";
@@ -8,6 +7,7 @@ paramsdata = readcell(paramsFilename);
 % extract params to base ws
 assign_parameters(paramsdata);
 %% calcuate and store data .mat
+autoSetWorkers()
 parfor i = 1:numSteps
     % Calculate the actual temperature value
     stepValue = startTemp + (i-1) * stepTemp;

@@ -1,6 +1,4 @@
 addpath('/home/yanxiwu/test2nodelete/varymusi/calcshared/');
-autoSetWorkers()
-
 %% read parameters relating to system configuration in each one's own folder
 paramsFilename ="params";
 % preparet to pass paramsdata cell to each parfor
@@ -86,6 +84,7 @@ numLeads=length(leads_info);
 intCurrents = zeros(numLeads,numSteps);  % Store int_current for each lead and each step
 intNoises = zeros(numLeads, numLeads,numSteps);    % Store int_noise for each lead pair and each step
 
+autoSetWorkers()
 parfor i = 1:numSteps
     Lead2mu=E_refined(i);
     [int_current,int_noise] = calc_loopParameter(H_total,E_sample_values, paramsdata, Lead2mu)
